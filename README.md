@@ -1,2 +1,2 @@
 # ASGToPython
-A students guide to python book problems
+students guide to python with physical modeling work
