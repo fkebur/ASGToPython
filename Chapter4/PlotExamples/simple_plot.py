@@ -34,10 +34,10 @@ ax.set_ylabel('Kinetic energy')
 ax.set_xticklabels(ax.get_xticks(), family = "monospace", fontsize=10)
 ax.set_yticklabels(ax.get_yticks(), family = "monospace", fontsize=10)
 
-lines = ax.get_lines()
+# lines = ax.get_lines()
 # Lines is a list of line objects.
 # Make the first line thick, dashed, and red.
-plt.setp(lines[0], linestyle='--', linewidth=3, color='r')
+# plt.setp(lines[0], linestyle='--', linewidth=3, color='r')
 
 # Use label keyword to set labels when plotting.
 plt.plot(x_values, y_values, label="Population 1")
@@ -46,11 +46,11 @@ plt.legend()
 # Display legend in plot
 
 # Use line objects to set labels after plotting
-ax = plt.gca()
-lines = ax.get_lines()
-lines[0].set_label("Infected Population")
-lines[1].set_label("Cured Population")
-ax.legend()
+# ax = plt.gca()
+# lines = ax.get_lines()
+# lines[0].set_label("Infected Population")
+# lines[1].set_label("Cured Population")
+# ax.legend()
 # Display legend in plot
 
-ax.legend(("Healthy","Recovered"))
+# ax.legend(("Healthy","Recovered"))
