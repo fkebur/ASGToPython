@@ -21,8 +21,8 @@ def VPop(t, tau):
 def WPop(t, A, tau):
     return A * (np.exp(-t/tau) -1 + (t/tau))
 
-# setup arrays
-t = np.arange(0,3,3e-3)
+# setup arrays for olotting
+t = np.arange(0,7,3e-3)
 timeH=[]
 timeL= []
 proteinActH=[]
@@ -48,22 +48,29 @@ plt.gcf().clear()
 # plt.plot(t, 1e1*VPop(t, 1e15), 'm:', label=r'$\tau = 180$')
 
 # Experimental Model with W(t) plot
-plt.plot(WPop(t, 1e1, 0.6e0), t,  'r--', label=r'$A = 1  ,\tau = 5e1$')
-plt.plot(WPop(t, 1e3, 0.5e0), t,  'c-' , label=r'$A = 1  ,\tau = 1e5$')
-#plt.plot(t, WPop(t, 1e3, 1e3), 'bo', label=r'$A = 1  ,\tau = 1e2$')
-# add limits
-plt.xlim(0,10)
+# plt.plot(t, WPop(t, 1e3, 1e3), 'bo', label=r'$A = 1  ,\tau = 1e2$')
+plt.semilogy(t, WPop(t, 9e-3, 4e-2), 'r--')#  label=r'$A = 1  ,\tau = 5e1$')
+# plt.plot(WPop(t, 6e2, 0.5) + 2.4, t,  'c-' , label=r'$A = 1  ,\tau = 1e5$')
+
+# How can I improve these curves? ...
+
+# limits
+plt.xlim(0.1,10)
 
 # Data plot; high inducer
-plt.plot(timeH, proteinActH, 'yx', label='High inducer')
+plt.semilogy(timeH, proteinActH, 'yx', label='High inducer')
 
 # Data plot; low inducer
-plt.plot(timeL, proteinActL, 'k+', label='Low inducer')
+# plt.plot(timeL, proteinActL, 'k+', label='Low inducer')
 
 plt.legend()
 
 ax = plt.gca()
 ax.set_title("Bacterial culture production", size=16, weight='bold')
+
+ax.set_xlabel('Time(hours)')
+ax.set_ylabel('Fraction of maximum beta-galactosidase activity')
+
 """
 Experimental model with W(t)
 plt.plot(t, WPop(t, 1 , 1), 'r--', label=r'$A = 1  ,\tau = 1$')
