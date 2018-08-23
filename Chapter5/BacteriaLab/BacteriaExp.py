@@ -49,7 +49,7 @@ plt.gcf().clear()
 
 # Experimental Model with W(t) plot
 # plt.plot(t, WPop(t, 1e3, 1e3), 'bo', label=r'$A = 1  ,\tau = 1e2$')
-plt.semilogy(t, WPop(t, 9e-3, 4e-2), 'r--')#  label=r'$A = 1  ,\tau = 5e1$')
+plt.semilogy(t, WPop(t, 0.36, 1), 'r--')#  label=r'$A = 1  ,\tau = 5e1$')
 # plt.plot(WPop(t, 6e2, 0.5) + 2.4, t,  'c-' , label=r'$A = 1  ,\tau = 1e5$')
 
 # How can I improve these curves? ...
