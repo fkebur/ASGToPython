@@ -7,7 +7,7 @@ Author: Kebur Fantahun
 Created: Thu Aug 16 10:10:24 2018
 Modified: Thu Aug 16 10:10:24 2018
 
-Description: Bacterial example
+Description: Bacterial lab example
 """
 import numpy as np, matplotlib.pyplot as plt
 
@@ -38,30 +38,25 @@ for j in range(len(bacteria_data_low)):
     proteinActL.append(bacteria_data_low[j][1])
     timeL.append(bacteria_data_low[j][0])
 
-# clear plot for re running program
+# clear plot for re-running program
 plt.gcf().clear()
-
-# Experimental Model with V(t) plot
-# plt.plot(t, 1e1*VPop(t, 5e1), 'r--', label=r'$\tau =  5e1$')
-# plt.plot(t, 4e2*VPop(t, 1e5), 'c-' , label=r'$\tau =  1e5$')
-# plt.plot(t, 1e1*VPop(t, 1e10), 'b-.', label=r'$\tau = 90$')
-# plt.plot(t, 1e1*VPop(t, 1e15), 'm:', label=r'$\tau = 180$')
 
 # Experimental Model with W(t) plot
 # plt.plot(t, WPop(t, 1e3, 1e3), 'bo', label=r'$A = 1  ,\tau = 1e2$')
-plt.semilogy(t, WPop(t, 0.36, 1), 'r--')#  label=r'$A = 1  ,\tau = 5e1$')
-# plt.plot(WPop(t, 6e2, 0.5) + 2.4, t,  'c-' , label=r'$A = 1  ,\tau = 1e5$')
+plt.semilogy(t, WPop(t, 0.35, 1), 'r--', label=r'$A = 0.35  ,\tau = 1$')
+plt.semilogy(WPop(t, 6e2, 1)-3 + 2.3, t-.1,  'c-' , label=r'$A = 6e2  ,\tau = 1$')
 
 # How can I improve these curves? ...
 
 # limits
 plt.xlim(0.1,10)
+plt.ylim(0.01,10)
 
 # Data plot; high inducer
 plt.semilogy(timeH, proteinActH, 'yx', label='High inducer')
 
 # Data plot; low inducer
-# plt.plot(timeL, proteinActL, 'k+', label='Low inducer')
+plt.semilogy(timeL, proteinActL, 'k+', label='Low inducer')
 
 plt.legend()
 
@@ -72,7 +67,16 @@ ax.set_xlabel('Time(hours)')
 ax.set_ylabel('Fraction of maximum beta-galactosidase activity')
 
 """
+
+Experimental Model with V(t)
+
+plt.plot(t, 1e1*VPop(t, 5e1), 'r--', label=r'$\tau =  5e1$')
+plt.plot(t, 4e2*VPop(t, 1e5), 'c-' , label=r'$\tau =  1e5$')
+plt.plot(t, 1e1*VPop(t, 1e10), 'b-.', label=r'$\tau = 90$')
+plt.plot(t, 1e1*VPop(t, 1e15), 'm:', label=r'$\tau = 180$')
+
 Experimental model with W(t)
+
 plt.plot(t, WPop(t, 1 , 1), 'r--', label=r'$A = 1  ,\tau = 1$')
 plt.plot(t, WPop(t, 1, -1), 'c-', label=r'$A = 1  , \tau = -1$')
 plt.plot(t, WPop(t, -1, 1), 'b-.',label=r'$A = -1,\tau = 1$')
@@ -80,7 +84,7 @@ plt.plot(t, WPop(t, -1, -1), 'r:',label=r'$A = -1,\tau = -1$')
 
 ...
 
-Method with arrays:
+Array(W#) method for A/ tau values:
 
 W1 = [1, 1]
 W2 = [1, -1]
