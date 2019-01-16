@@ -1,2 +1,2 @@
 # ASGToPython
-students guide to python with physical modeling work
+Work for all examples in the "A Students Guide to Python: Physical Modeling" book
